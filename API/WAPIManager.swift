@@ -13,8 +13,12 @@ import SwiftyJSON
 public class WAPIManager {
     
     private var params = [String : AnyObject]()
-
-    var temperatureFormat: TemperatureFormat = TemperatureFormat.Celsius
+    public var temperatureFormat: TemperatureFormat = .Celsius
+    public var language: Language = .English {
+        didSet {
+            params["lang"] = language.rawValue
+        }
+    }
 
     public init(apiKey: String) {
         params["APPID"] = apiKey
@@ -27,7 +31,7 @@ public class WAPIManager {
 
     public convenience init(apiKey: String, temperatureFormat: TemperatureFormat, lang: Language) {
         self.init(apiKey: apiKey, temperatureFormat: temperatureFormat)
-        params["lang"] = lang.rawValue
+        language = lang
     }
 }
 
