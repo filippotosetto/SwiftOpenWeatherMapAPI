@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SwiftOpenWeatherMapAPI  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a title="SwiftOpenWeatherMapAPI  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">SwiftOpenWeatherMapAPI Docs</a> (0% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">SwiftOpenWeatherMapAPI Reference</a>
+        <img id="carat" src="img/carat.png" />
+        SwiftOpenWeatherMapAPI  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/WAPIManager.html">WAPIManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/Language.html">Language</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/TemperatureFormat.html">TemperatureFormat</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#swift_open_weather_map_api' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='swift_open_weather_map_api'>Swift Open Weather Map API</h1>
+
+<p>Swift Open Weather Map API is a wrapper around <a href="http://openweathermap.org">OpenWeatherAPI</a></p>
+<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+
+<ul>
+<li>iOS 8.0+ / Mac OS X 10.9+</li>
+<li>Xcode 7</li>
+</ul>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
+
+<p>You can use <a href="http://cocoapods.org/">CocoaPods</a> to install <code>SwiftOpenWeatherMapAPI</code> adding it to your Podfile:</p>
+<pre class="highlight plaintext"><code>pod 'SwiftOpenWeatherMapAPI'
+</code></pre>
+<a href='#initialization' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='initialization'>Initialization</h2>
+
+<p>Include the header:</p>
+<pre class="highlight plaintext"><code>import SwiftOpenWeatherMapAPI
+</code></pre>
+
+<p>Setup the api:</p>
+<pre class="highlight plaintext"><code>// Setup weather api
+let weatherAPI = WAPIManager(apiKey: "YOUR_API_KEY")
+
+// Setup weather api with temperature format
+let weatherAPI = WAPIManager(apiKey: "YOUR_API_KEY", temperatureFormat: .Celsius)
+
+// Setup weather api with temperature format and language
+let weatherAPI = WAPIManager(apiKey: "YOUR_API_KEY", temperatureFormat: .Celsius, lang: .English)
+</code></pre>
+<a href='#getting_data' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='getting_data'>Getting data</h2>
+
+<p>The api is at this time just simple wrapper for the http-api.</p>
+<pre class="highlight plaintext"><code>weatherAPI.currentWeatherByCityNameAsJson("London") { (json) -&gt; Void in
+    //Do something with the data
+}
+</code></pre>
+
+<p>The result is a <code>JSON</code> struct coming from mapping the api data using <a href="https://github.com/SwiftyJSON/SwiftyJSON">SwiftyJSON</a></p>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+
+<p>The following methods are available at this time:</p>
+<a href='#current_weather' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='current_weather'>Current Weather</h3>
+
+<p>Current weather by city name:</p>
+<pre class="highlight plaintext"><code>public func currentWeatherByCityNameAsJson(cityName: String, data: (JSON) -&gt; Void)
+</code></pre>
+
+<p>Current weather by coordinate:</p>
+<pre class="highlight plaintext"><code>public func currentWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -&gt; Void)
+</code></pre>
+<a href='#forecasts_3_hour_intervals' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='forecasts_3_hour_intervals'>Forecasts (3 hour intervals)</h3>
+
+<p>forecast by city name:</p>
+<pre class="highlight plaintext"><code>public func forecastWeatherByCityNameAsJson(cityName: String, data: (JSON) -&gt; Void)
+</code></pre>
+
+<p>forecast by coordinate:</p>
+<pre class="highlight plaintext"><code>public func forecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -&gt; Void)
+</code></pre>
+<a href='#daily_forecasts' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='daily_forecasts'>Daily Forecasts</h3>
+
+<p>daily forecast by city name:</p>
+<pre class="highlight plaintext"><code>public func dailyForecastWeatherByCityNameAsJson(cityName: String, data: (JSON) -&gt; Void)
+</code></pre>
+
+<p>daily forecast by coordinates:</p>
+<pre class="highlight plaintext"><code>public func dailyForecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -&gt; Void)
+</code></pre>
+<a href='#historic_data' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='historic_data'>Historic Data</h3>
+
+<p>historic data by city name:</p>
+<pre class="highlight plaintext"><code>public func historicDataByCityNameAsJson(cityName: String, start: NSDate, end: NSDate?, data: (JSON) -&gt; Void)
+</code></pre>
+
+<p>historic data by coordinates:</p>
+<pre class="highlight plaintext"><code>public func historicDataByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, start: NSDate, end: NSDate?, data: (JSON) -&gt; Void)
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://github.com/filippotosetto/SwiftOpenWeatherMapAPI" target="_blank" rel="external">Filippo Tosetto</a>. All rights reserved. (Last updated: 2015-11-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

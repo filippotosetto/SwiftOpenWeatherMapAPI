@@ -1,0 +1,44 @@
+Utility.swift
+	public enum TemperatureFormat
+	case Celsius, Fahrenheit, Kelvin
+	case Celsius, Fahrenheit, Kelvin
+	case Celsius, Fahrenheit, Kelvin
+	public enum Language : String
+	case English = "en",
+	Russian = "ru",
+	Italian = "it",
+	Spanish = "es",
+	Ukrainian = "uk",
+	German = "de",
+	Portuguese = "pt",
+	Romanian = "ro",
+	Polish = "pl",
+	Finnish = "fi",
+	Dutch = "nl",
+	French = "fr",
+	Bulgarian = "bg",
+	Swedish = "sv",
+	ChineseTraditional = "zh_tw",
+	ChineseSimplified = "zh_cn",
+	Turkish = "tr",
+	Croatian = "hr",
+	Catalan = "ca"
+WAPIManager.swift
+	public class WAPIManager
+	public var temperatureFormat: TemperatureFormat = .Celsius
+	public var language: Language = .English
+	public init(apiKey: String)
+	public convenience init(apiKey: String, temperatureFormat: TemperatureFormat)
+	public convenience init(apiKey: String, temperatureFormat: TemperatureFormat, lang: Language)
+	public class WAPIManager
+	public func currentWeatherByCityNameAsJson(cityName: String, data: (JSON) -> Void)
+	public func currentWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -> Void)
+	public class WAPIManager
+	public func forecastWeatherByCityNameAsJson(cityName: String, data: (JSON) -> Void)
+	public func forecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -> Void)
+	public class WAPIManager
+	public func dailyForecastWeatherByCityNameAsJson(cityName: String, data: (JSON) -> Void)
+	public func dailyForecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -> Void)
+	public class WAPIManager
+	public func historicDataByCityNameAsJson(cityName: String, start: NSDate, end: NSDate?, data: (JSON) -> Void)
+	public func historicDataByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, start: NSDate, end: NSDate?, data: (JSON) -> Void)
