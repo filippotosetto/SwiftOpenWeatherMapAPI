@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftOpenWeatherMapAPI"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Swift Open Weather Map API is a wrapper around http://openweathermap.org."
 
   s.homepage     = "http://github.com/filippotosetto/SwiftOpenWeatherMapAPI"
@@ -10,8 +10,11 @@ Pod::Spec.new do |s|
   s.author       = { "Filippo Tosetto" => "filippo.tosetto@gmail.com" }
 
   s.requires_arc = true
-  s.platform     = :ios, "8.0"
-  s.source     = { :git => "https://github.com/filippotosetto/SwiftOpenWeatherMapAPI.git", :tag => "0.0.2" }
+
+  s.ios.deployment_target = '8.0'
+  s.watchos.deployment_target = '2.0'
+
+  s.source     = { :git => "https://github.com/filippotosetto/SwiftOpenWeatherMapAPI.git", :tag => s.version }
   s.source_files = "API/*.swift"
 
   s.dependency 'Alamofire', '~> 2.0'
