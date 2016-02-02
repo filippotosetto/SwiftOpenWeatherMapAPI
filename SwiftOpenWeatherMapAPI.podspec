@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftOpenWeatherMapAPI"
-  s.version      = "0.0.3"
+  s.version      = "0.39.0"
   s.summary      = "Swift Open Weather Map API is a wrapper around http://openweathermap.org."
 
   s.homepage     = "http://github.com/filippotosetto/SwiftOpenWeatherMapAPI"
