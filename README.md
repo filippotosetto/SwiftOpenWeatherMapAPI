@@ -1,16 +1,43 @@
 # Swift Open Weather Map API
 Swift Open Weather Map API is a wrapper around [OpenWeatherAPI](http://openweathermap.org)
 
+[![Platform](https://img.shields.io/cocoapods/p/SwiftOpenWeatherMapAPI.svg?style=flat)](http://cocoadocs.org/docsets/SwiftOpenWeatherMapAPI) [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/SwiftOpenWeatherMapAPI.svg?style=flat)](https://img.shields.io/cocoapods/v/SwiftOpenWeatherMapAPI.svg?style=flat)   [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 ## Requirements
 - iOS 8.0+ / Mac OS X 10.9+
 - Xcode 7
 
 ## Installation
+### CocoaPods
 You can use [CocoaPods](http://cocoapods.org/) to install `SwiftOpenWeatherMapAPI` adding it to your Podfile:
 
 ```Ruby
 pod 'SwiftOpenWeatherMapAPI'
 ```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+### Carthage
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "filippotosetto/SwiftOpenWeatherMapAPI"
+```
+
+Run `carthage update` to build the framework and drag the built `Alamofire.framework`, `SwiftyJSON.framework` and `SwiftOpenWeatherMapAPI.framework` into your Xcode project.
 
 ## Initialization
 Include the header:
