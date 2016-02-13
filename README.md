@@ -1,7 +1,7 @@
 # Swift Open Weather Map API
 Swift Open Weather Map API is a wrapper around [OpenWeatherAPI](http://openweathermap.org)
 
-[![Platform](https://img.shields.io/cocoapods/p/SwiftOpenWeatherMapAPI.svg?style=flat)](http://cocoadocs.org/docsets/SwiftOpenWeatherMapAPI) [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/SwiftOpenWeatherMapAPI.svg?style=flat)](https://img.shields.io/cocoapods/v/SwiftOpenWeatherMapAPI.svg?style=flat)   [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftOpenWeatherMapAPI.svg?style=flat)](http://cocoadocs.org/docsets/SwiftOpenWeatherMapAPI) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftOpenWeatherMapAPI.svg?style=flat)](https://img.shields.io/cocoapods/v/SwiftOpenWeatherMapAPI.svg?style=flat)   [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Requirements
 - iOS 8.0+ / Mac OS X 10.9+
