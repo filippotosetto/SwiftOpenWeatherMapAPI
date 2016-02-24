@@ -14,6 +14,7 @@
 		417862A41ADFC4E000A20E14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417862A31ADFC4E000A20E14 /* Images.xcassets */; };
 		417862A71ADFC4E000A20E14 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417862A51ADFC4E000A20E14 /* LaunchScreen.xib */; };
 		417862C21ADFC87400A20E14 /* WAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417862C11ADFC87400A20E14 /* WAPIManager.swift */; };
+<<<<<<< HEAD
 		41DA8A3C1C60C066001D67CE /* SwiftOpenWeatherMapApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 41DA8A3B1C60C066001D67CE /* SwiftOpenWeatherMapApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41DA8A401C60C066001D67CE /* SwiftOpenWeatherMapApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA8A391C60C066001D67CE /* SwiftOpenWeatherMapApi.framework */; };
 		41DA8A411C60C066001D67CE /* SwiftOpenWeatherMapApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA8A391C60C066001D67CE /* SwiftOpenWeatherMapApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -22,6 +23,8 @@
 		41DA8A4A1C60C0AD001D67CE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA8A481C60C0AD001D67CE /* Alamofire.framework */; };
 		41DA8A4B1C60C0AD001D67CE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA8A491C60C0AD001D67CE /* SwiftyJSON.framework */; };
 		41F70DD21BF239F70013702A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F70DD11BF239F70013702A /* Utility.swift */; };
+=======
+>>>>>>> develop
 		41F70DD41BF24E430013702A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F70DD31BF24E430013702A /* Extensions.swift */; };
 		41F70DD61BF24E5D0013702A /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F70DD51BF24E5D0013702A /* Weather.swift */; };
 /* End PBXBuildFile section */
@@ -60,12 +63,15 @@
 		417862A31ADFC4E000A20E14 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		417862A61ADFC4E000A20E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		417862C11ADFC87400A20E14 /* WAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WAPIManager.swift; path = API/WAPIManager.swift; sourceTree = SOURCE_ROOT; };
+<<<<<<< HEAD
 		41DA8A391C60C066001D67CE /* SwiftOpenWeatherMapApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftOpenWeatherMapApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DA8A3B1C60C066001D67CE /* SwiftOpenWeatherMapApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftOpenWeatherMapApi.h; sourceTree = "<group>"; };
 		41DA8A3D1C60C066001D67CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41DA8A481C60C0AD001D67CE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		41DA8A491C60C0AD001D67CE /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		41F70DD11BF239F70013702A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = API/Utility.swift; sourceTree = SOURCE_ROOT; };
+=======
+>>>>>>> develop
 		41F70DD31BF24E430013702A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		41F70DD51BF24E5D0013702A /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		5D116260FA088CF82142A713 /* Pods_SwiftOpenWeatherMapAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftOpenWeatherMapAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +147,6 @@
 		417862BC1ADFC51600A20E14 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				41F70DD11BF239F70013702A /* Utility.swift */,
 				417862C11ADFC87400A20E14 /* WAPIManager.swift */,
 			);
 			name = API;
@@ -341,7 +346,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				41F70DD41BF24E430013702A /* Extensions.swift in Sources */,
-				41F70DD21BF239F70013702A /* Utility.swift in Sources */,
 				417862C21ADFC87400A20E14 /* WAPIManager.swift in Sources */,
 				4178629F1ADFC4E000A20E14 /* ViewController.swift in Sources */,
 				41F70DD61BF24E5D0013702A /* Weather.swift in Sources */,

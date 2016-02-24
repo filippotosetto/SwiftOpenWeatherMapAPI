@@ -9,10 +9,12 @@
 import UIKit
 import SwiftyJSON
 
-class ViewController: UIViewController {
 
+
+class ViewController: UIViewController {
+    
     // TODO: Set correct API key
-    let apiManager = WAPIManager(apiKey: "271537219331766fbdaf30a4ef37fb33")
+    let apiManager = WAPIManager(apiKey: "271537219331766fbdaf30a4ef37fb33", temperatureFormat: .Celsius, lang: .Italian)
     let city = "London,UK"
     
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -37,17 +39,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apiManager.currentWeatherByCityNameAsJson(city, data: { (json) -> Void in
-            self.cityNameLabel.text = json["name"].stringValue
-
-            self.currentWeather = Weather(json: json)
+        apiManager.currentWeatherByCityNameAsJson(city, data: { (result) -> Void in
+            switch result {
+            case .Success(let json):
+                self.cityNameLabel.text = json["name"].stringValue
+                self.currentWeather = Weather(json: json)
+                break
+            case .Error(let errorMessage):
+                self.showErrorAlert(errorMessage)
+                break
+            }
+            
         })
         
-        apiManager.forecastWeatherByCityNameAsJson(city, data: { (json) -> Void in
-            self.weatherList = json["list"].array!.map() { Weather(json: $0) }
+        apiManager.forecastWeatherByCityNameAsJson(city, data: { (result) -> Void in
+            switch result {
+            case .Success(let json):
+                self.weatherList = json["list"].array!.map() { Weather(json: $0) }
+                break
+                
+            case .Error(let errorMessage):
+                self.showErrorAlert(errorMessage)
+                break
+                
+            }
         })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,5 +89,12 @@ extension ViewController: UITableViewDataSource {
         
         return cell
     }
+}
 
+extension ViewController {
+    private func showErrorAlert(errorMessage: String) {
+        let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 }
