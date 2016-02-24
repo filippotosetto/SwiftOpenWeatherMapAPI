@@ -39,14 +39,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apiManager.currentWeatherByCityNameAsJson(city, data: { (json) -> Void in
-            self.cityNameLabel.text = json["name"].stringValue
+        apiManager.currentWeatherByCityNameAsJson(city, data: { (result) -> Void in
+            switch result {
+            case .Success(let json):
+                self.cityNameLabel.text = json["name"].stringValue
+                self.currentWeather = Weather(json: json)
+                break
+            case .Error(let errorMessage):
+                self.showErrorAlert(errorMessage)
+                break
+            }
             
-            self.currentWeather = Weather(json: json)
         })
         
-        apiManager.forecastWeatherByCityNameAsJson(city, data: { (json) -> Void in
-            self.weatherList = json["list"].array!.map() { Weather(json: $0) }
+        apiManager.forecastWeatherByCityNameAsJson(city, data: { (result) -> Void in
+            switch result {
+            case .Success(let json):
+                self.weatherList = json["list"].array!.map() { Weather(json: $0) }
+                break
+                
+            case .Error(let errorMessage):
+                self.showErrorAlert(errorMessage)
+                break
+                
+            }
         })
     }
     
@@ -73,5 +89,12 @@ extension ViewController: UITableViewDataSource {
         
         return cell
     }
-    
+}
+
+extension ViewController {
+    private func showErrorAlert(errorMessage: String) {
+        let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 }
