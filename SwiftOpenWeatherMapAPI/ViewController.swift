@@ -9,10 +9,12 @@
 import UIKit
 import SwiftyJSON
 
-class ViewController: UIViewController {
 
+
+class ViewController: UIViewController {
+    
     // TODO: Set correct API key
-    let apiManager = WAPIManager(apiKey: "271537219331766fbdaf30a4ef37fb33")
+    let apiManager = WAPIManager(apiKey: "271537219331766fbdaf30a4ef37fb33", temperatureFormat: .Celsius, lang: .Italian)
     let city = "London,UK"
     
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -39,7 +41,7 @@ class ViewController: UIViewController {
         
         apiManager.currentWeatherByCityNameAsJson(city, data: { (json) -> Void in
             self.cityNameLabel.text = json["name"].stringValue
-
+            
             self.currentWeather = Weather(json: json)
         })
         
@@ -47,7 +49,7 @@ class ViewController: UIViewController {
             self.weatherList = json["list"].array!.map() { Weather(json: $0) }
         })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,5 +73,5 @@ extension ViewController: UITableViewDataSource {
         
         return cell
     }
-
+    
 }
