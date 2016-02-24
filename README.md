@@ -63,12 +63,23 @@ let weatherAPI = WAPIManager(apiKey: "YOUR_API_KEY", temperatureFormat: .Celsius
 The api is at this time just simple wrapper for the http-api.
 
 ```Swift
-weatherAPI.currentWeatherByCityNameAsJson("London") { (json) -> Void in
+weatherAPI.currentWeatherByCityNameAsJson("London") { (result) -> Void in
     //Do something with the data
 }
 ```
 
-The result is a `JSON` struct coming from mapping the api data using [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+The result is a `WeatherResult` emum
+
+```Swift
+public enum WeatherResult {
+    case Success(JSON)
+    case Error(String)
+}
+```
+
+In case of success the associated object is of type `JSOM` coming from mapping the api data using [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON).
+
+In case of error the associated type is a String describing the failure.
 
 ## Usage
 The following methods are available at this time:
@@ -77,50 +88,50 @@ The following methods are available at this time:
 Current weather by city name:
 
 ```Swift
-public func currentWeatherByCityNameAsJson(cityName: String, data: (JSON) -> Void)
+public func currentWeatherByCityNameAsJson(cityName: String, data: (WeatherResult) -> Void)
 ```
 
 Current weather by coordinate:
 
 ```Swift
-public func currentWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -> Void)
+public func currentWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (WeatherResult) -> Void)
 ```
 
 ### Forecasts (3 hour intervals)
 forecast by city name:
 
 ```Swift
-public func forecastWeatherByCityNameAsJson(cityName: String, data: (JSON) -> Void)
+public func forecastWeatherByCityNameAsJson(cityName: String, data: (WeatherResult) -> Void)
 ```
 
 forecast by coordinate:
 
 ```Swift
-public func forecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -> Void)
+public func forecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (WeatherResult) -> Void)
 ```
 
 ### Daily Forecasts
 daily forecast by city name:
 
 ```Swift
-public func dailyForecastWeatherByCityNameAsJson(cityName: String, data: (JSON) -> Void)
+public func dailyForecastWeatherByCityNameAsJson(cityName: String, data: (WeatherResult) -> Void)
 ```
 
 daily forecast by coordinates:
 
 ```Swift
-public func dailyForecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (JSON) -> Void)
+public func dailyForecastWeatherByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, data: (WeatherResult) -> Void)
 ```
 
 ### Historic Data
 historic data by city name:
 
 ```Swift
-public func historicDataByCityNameAsJson(cityName: String, start: NSDate, end: NSDate?, data: (JSON) -> Void)
+public func historicDataByCityNameAsJson(cityName: String, start: NSDate, end: NSDate?, data: (WeatherResult) -> Void)
 ```
 
 historic data by coordinates:
 
 ```Swift
-public func historicDataByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, start: NSDate, end: NSDate?, data: (JSON) -> Void)
+public func historicDataByCoordinatesAsJson(coordinates: CLLocationCoordinate2D, start: NSDate, end: NSDate?, data: (WeatherResult) -> Void)
 ```
